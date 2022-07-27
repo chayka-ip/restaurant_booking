@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  backend:
+      build: .
+      container_name: rb_backend
+      command: bash entrypoint.sh
+      volumes:
+        - .:/usr/src/app
+      ports:
+        - "9000:9000"
+      env_file:
+        - .env
+      depends_on:
+      - pgdb
+      - celery
+      - redis
+
+  celery:
+      build: .
+      container_name: rb_celery
+      command: celery -A project worker -l INFO
+      env_file:
+        - .env
+      volumes:
+        - .:/usr/src/app
+      depends_on:
+        - redis
+
+  pgdb:
+      image: postgres
+      container_name: rb_pgdb
+      env_file:
+        - .env
+      volumes:
+        - pgdata:/var/lib/postgresql/data
+
+  redis:
+    container_name: rb_redis
+    image: "redis:alpine"
+
+volumes:
+    pgdata:

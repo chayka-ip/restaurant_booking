@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "f86d0c6c-eb67-439d-b1a8-27b549b11728",
+		"name": "Customer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21796669"
+	},
+	"item": [
+		{
+			"name": "Customer View Tables",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"seats_min\": 1,\r\n    \"seats_max\": 100,\r\n    \"price_min\": 1,\r\n    \"price_max\": 99999\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/customer/view_tables/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"view_tables",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Book Table",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{customer_password}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/customer/book_table/?id=12",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"book_table",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Cancel Booking",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{customer_password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"discard_id\": \"ad822ae9-f164-46ac-9a32-a5d189c3b8d9\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/api/customer/cancel_booking/?id=fc85ae73-0d80-47b4-9bf9-90a770f530f6",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"cancel_booking",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "fc85ae73-0d80-47b4-9bf9-90a770f530f6"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
