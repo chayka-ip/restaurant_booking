@@ -39,7 +39,7 @@ docker-compose up
 
 #### ADMIN ENDPOINTS
 ```
-admin/add_table/
+/api/admin/add_table/
 
 Params (JSON):
 'table_type' (optional): "regular" | "cabin" | "room"
@@ -49,7 +49,7 @@ Params (JSON):
 
 ```
 ```
-admin/update_table/
+/api/admin/update_table/
 
 Params (JSON):
 'id' (required): int
@@ -59,34 +59,34 @@ Params (JSON):
 'can_be_booked' (optional): bool
 ```
 ```
-admin/accept_booking/
+/api/admin/accept_booking/
 
 Params (Query):
 'id': int - customer booking id
 ```
 ```
-admin/cancel_booking/
+/api/admin/cancel_booking/
 
 Params (Query):
 'id': int - customer booking id
 ```
 ```
-admin/view_active_bookings/
+/api/admin/view_active_bookings/
 ```
 
 #### CUSTOMER ENDPOINTS
 
 ```
-customer/view_tables/
+/api/customer/view_tables/
 ```
 ```
-customer/book_table/
+/api/customer/book_table/
 
 Params (Query):
 'id': int - table id
 ```
 ```
-customer/cancel_booking/
+/api/customer/cancel_booking/
 
 Params (Query):
 'id': str
